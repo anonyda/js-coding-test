@@ -5,7 +5,20 @@
 */
 
 const addition = (...numbers) => {
-  // all your code
+  let sum = 0;
+  if(!numbers.length){
+    throw new Error('Invalid Input');
+  }
+  
+  numbers.forEach((num) => {
+    if(typeof(num) !== 'number'){
+      throw new Error('Invalid Input');
+    }
+
+    sum = sum + num;
+    
+  });
+  return sum;
 };
 
 module.exports = addition;

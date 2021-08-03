@@ -38,7 +38,27 @@
 
 const getObjectStructure = (obj) => {
   // write code here
+  if(!obj){
+    throw new Error('Invalid Input');
+  }
+  let objStruct = {};
+  
+  for(key in obj){
+    if(typeof(obj[key]) === 'object'){
+      objStruct[key] = {};
+      for(nestedKey in obj[key]){
+        console.log(nestedKey);
+        objStruct[key][nestedKey] = typeof(obj[key][nestedKey]);
+      }
+    }else{
+      objStruct[key] = typeof(obj[key]);
+    }
+    
+    
+  }
+  return objStruct;
 };
+
 
 // donot remove this line
 module.exports = getObjectStructure;
